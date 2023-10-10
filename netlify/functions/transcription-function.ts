@@ -31,7 +31,7 @@ const handler: Handler = async (event: HandlerEvent) => {
   } catch (error) {
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: AxiosError.message }),
+      body: JSON.stringify({ error }),
     };
   }
 };
