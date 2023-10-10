@@ -2,8 +2,8 @@ import { stream } from "@netlify/functions";
 
 export const handler = stream(async (event) => {
   // Get the request from the request query string, or use a default
-  const pie =
-    event.queryStringParameters?.pie ??
+  const topic =
+    event.queryStringParameters.topic ||
     "something inspired by a springtime garden";
 
   // The response body returned from "fetch" is a "ReadableStream",
@@ -23,7 +23,7 @@ export const handler = stream(async (event) => {
             "You are American poet e.e. cummings. The user will give you some inspiration and you should reply in the form of a short poem.",
         },
         // Use "slice" to limit the length of the input to 500 characters
-        { role: "user", content: pie.slice(0, 500) },
+        { role: "user", content: topic.slice(0, 500) },
       ],
       // Use server-sent events to stream the response
       stream: true,
