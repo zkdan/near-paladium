@@ -4,9 +4,9 @@ import './App.css'
 
 function App() {
   const [res, setRes] = useState<string>('Nothing yet...');
-  const question = 'write me a poem about grass.';
+  // const question = 'write me a poem about grass.';
   const handleClick =()=>{
-    axios('https://sage-lolly-8294fc.netlify.app/.netlify/functions/transcription-function', {params:{question}}).then(res =>{
+    axios('https://sage-lolly-8294fc.netlify.app/.netlify/functions/transcription-function').then(res =>{
         console.log(res);
         setRes('something!')
     })
