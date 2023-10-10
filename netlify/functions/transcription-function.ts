@@ -3,7 +3,7 @@ import axios, {AxiosResponse, AxiosError} from 'axios';
 import type { Handler, HandlerEvent } from '@netlify/functions';
 
 const handler: Handler = async (event: HandlerEvent) => {
-  const query = event.queryStringParameters?.question || 'Write me a short poem about tigers, please.';
+  const query = event.queryStringParameters?.question || 'Write me a short poem about tigers.';
   try {
     // Your OpenAI API key
     const apiKey = process.env.OPENAI_API_KEY;
@@ -28,7 +28,7 @@ const handler: Handler = async (event: HandlerEvent) => {
       statusCode:200,
       body: JSON.stringify(res.data.choices[0].message.content)}
  
-  } catch (error:AxiosError) {
+  } catch (error) {
     return {
       statusCode: 500,
       body: JSON.stringify({ error: AxiosError.message }),
