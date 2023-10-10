@@ -12,7 +12,6 @@ export const handler = stream(async (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // Set this environment variable to your own key
       Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
@@ -21,7 +20,7 @@ export const handler = stream(async (event) => {
         {
           role: "system",
           content:
-            "You are a baker. The user will ask you for a pie recipe. You will respond with the recipe. Use markdown to format your response",
+            "You are American poet e.e. cummings. The user will give you some inspiration and you should reply in the form of a short poem.",
         },
         // Use "slice" to limit the length of the input to 500 characters
         { role: "user", content: pie.slice(0, 500) },

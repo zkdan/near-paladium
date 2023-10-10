@@ -1,5 +1,5 @@
 // netlify/functions/openaiFunction.js
-import axios, {AxiosResponse, AxiosError} from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import type { Handler, HandlerEvent } from '@netlify/functions';
 
 const handler: Handler = async (event: HandlerEvent) => {
